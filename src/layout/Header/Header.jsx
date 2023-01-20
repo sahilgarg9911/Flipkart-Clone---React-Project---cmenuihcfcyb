@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 
 
 function Header() {
+    const searchIcon = 'https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png';
     const products = useSelector((state)=> state.cart);
     let arr =[];
     products.map((product, id) => {
@@ -42,22 +43,24 @@ function Header() {
         </Link>
         {/* logo*/}
 
-        {/* Search - box */}
         <div className='headerSearch'>
-            <input className='headerSearchInput' />
-            {/* <SearchIcon className='headerSearchIcon' /> */}
+        {/* <img src={searchIcon} alt="search" className='searchicon' /> */}
+            {/* <input className='headerSearchInput' /> */}
+            
+            {/* <button className='searchbtn'>Search</button> */}
+            <div className="search">
+                        <input type="text" placeholder="Search for products brands and more" />
+                       <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
         </div>
-        <button className='searchbtn'>Search</button>
-        {/* Search - box */}
+        
 
         {/* Links */}
         <div className='headerNavbar' >
             {/* signout/ signin */}
             <Link to="/Login" className='headerLink' >
-                <div className='headerOptions' >
-                    <span className='headerOption_One'>Hello</span>
-                    <span className='headerOption_One'>User</span>
-                </div>
+            <button className='searchbtn'>Login</button>
             </Link>
             
 

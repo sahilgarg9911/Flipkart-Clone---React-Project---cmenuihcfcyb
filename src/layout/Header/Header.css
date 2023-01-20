@@ -1,6 +1,73 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .header {
     display: flex;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 700px) {
+    .header {
+        display: flex;
+        flex-direction: row;
+    }
+    .search {
+        background-color: white;
+        padding: 8px;
+        width: 420px;
+        margin: 0px 15px;
+        display: flex;
+        justify-content: space-between;
+        color: #2874f0;
+        margin-top: 10px;
+    }
+    .header .headerSearch {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        width: 10vw;
+        margin-right: 11vw;
+        margin-top: 85px;
+        /* background-color: #000; */
+    }
+    .header .headerTop {
+        height: 140px;
+        background: #5555ff;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .header .logo {
+        width: 100px;
+        object-fit: cover;
+        margin: -1px 20px 0px 20px;
+        height: 8vh;
+    }
+}
+
+.search {
+    background-color: white;
+    padding: 8px;
+    width: 600px;
+    margin: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    color: #2874f0;
+}
+
+.search input {
+    width: 380px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    /* box-shadow: -7px -7px 10px rgba(0, 0, 0,0.1),
+    7px 7px 10px rgba(0, 0, 0,0.1); */
 }
 
 .header .headerTop {
@@ -28,7 +95,7 @@
 .header .logo {
     width: 100px;
     object-fit: cover;
-    margin: 18px 20px 0px 20px;
+    margin: 18px 20px 5px 200px;
     height: 8vh;
 }
 
@@ -149,15 +216,15 @@
 
 .searchbtn {
     margin: 5px;
-    margin-left: -25vw;
+    margin-left: -9vw;
     height: 5vh;
-    width: 9vw;
+    width: 8vw;
     font-size: 16px;
     /* background: #f0c14b; */
     /* border-color: #a88734 #9c7e31 #846a29; */
-    background-color: white;
-    border-color: white;
+    background-color: #5555ff;
+    border-color: #5555ff;
     /* border-radius: 20px; */
     cursor: pointer;
-    color: #5555ff;
+    color: white;
 }

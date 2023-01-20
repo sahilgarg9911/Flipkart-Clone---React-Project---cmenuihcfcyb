@@ -39,7 +39,7 @@ function Product() {
             
             
             return(
-                <Link to={`Checkout/${product.id} `} >  
+                <Link className= "linkproducts" to={`Checkout/${product.id} `} >  
             <div className= "Products"  key={id}>
             {console.log(id)}
             <img src={product.image} />

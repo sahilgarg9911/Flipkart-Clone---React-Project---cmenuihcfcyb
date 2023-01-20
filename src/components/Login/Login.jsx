@@ -7,19 +7,20 @@ import { Link } from 'react-router-dom';
 function Login() {
     const navigate = useNavigate();
     const [input, setInput] = useState({
-        email: "",
-        password: ""
+        "email": "",
+        "password": ""
     });
 
     const handlelogin=(e) => {
         e.preventDefault();
         const loggeduser = JSON.parse( localStorage.getItem("loginDetails"));
         console.log(loggeduser);
-        
+        console.log(input);
         loggeduser.filter((ele, id) => {
-            if(input.email === ele.email && input.password === ele.password) {
+            if(input.email == ele.email && input.password == ele.password) {
+                console.log("login")
                 navigate("/");
-                // console.log("login")
+                
             }
             // if (input.email !== ele.email || input.password !== ele.password) {
             //     alert("wrong email or password");
@@ -42,10 +43,10 @@ function Login() {
                 <h1>Login</h1>
                 <form>
                     <h3>Email</h3>
-                    <input type="email" placeholder='Your Email' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value,})}></input>
+                    <input name='email' type="email" placeholder='Your Email' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}></input>
                     <h3 >Password</h3>
-                    <input type="password" placeholder='Your Password' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value,})}  ></input>
-                    <button className='LoginButton' >Sign In</button>
+                    <input name='password' type="password" placeholder='Your Password' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}  ></input>
+                    <button className='LoginButton' onClick={handlelogin}>Sign In</button>
                 </form>
                 <p>By continuing, you agree to Flipkart's conditons of Use Privacy</p>
                 <Link to="/Signup" className='headerLink' >
