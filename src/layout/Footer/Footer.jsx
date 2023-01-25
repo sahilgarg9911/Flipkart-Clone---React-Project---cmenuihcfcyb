@@ -2,13 +2,14 @@ import React from 'react';
 import './Footer.css'
 
 function Footer() {
-    const Scto = () =>{
-        window.scrollTo(0,0);
-    }
+    // const Scto = () =>{
+    //     window.scrollTo(0,0);
+    // }
   return (
     <>
     <div className='Footer'>
-    <a onClick={Scto}>
+    {/* <a onClick={Scto}> */}
+    <a>
     <div className='FooterBottomToTop' >
     </div>
     </a>

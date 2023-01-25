@@ -14,8 +14,8 @@ function Login() {
     const handlelogin=(e) => {
         e.preventDefault();
         const loggeduser = JSON.parse( localStorage.getItem("loginDetails"));
-        console.log(loggeduser);
-        console.log(input);
+        // console.log(loggeduser);
+        // console.log(input);
         loggeduser.filter((ele, id) => {
             if(input.email == ele.email && input.password == ele.password) {
                 console.log("login")
@@ -46,7 +46,7 @@ function Login() {
                     <input name='email' type="email" placeholder='Your Email' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}></input>
                     <h3 >Password</h3>
                     <input name='password' type="password" placeholder='Your Password' required onChange={(e) => setInput({...input, [e.target.name]: e.target.value})}  ></input>
-                    <button className='LoginButton' onClick={handlelogin}>Sign In</button>
+                    <button className='LoginButton' onClick={handlelogin}>Login</button>
                 </form>
                 <p>By continuing, you agree to Flipkart's conditons of Use Privacy</p>
                 <Link to="/Signup" className='headerLink' >

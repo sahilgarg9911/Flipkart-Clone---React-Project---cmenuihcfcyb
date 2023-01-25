@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import {add} from '../store/cartSlice'
+// import { useDispatch } from 'react-redux';
+// import {add} from '../store/cartSlice'
 import './Product.css';
 import Checkout from './Checkout/Checkout';
 import { Link } from 'react-router-dom';
 
 
 function Product() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [products, setProduct] = useState([])
 
     async function getProductData() {
         const Api = await fetch("https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products");
         const data = await Api.json();
-        console.log(data)
+        // console.log(data)
 
         setProduct(data)
     }
@@ -21,12 +21,12 @@ function Product() {
         getProductData()
     }, [])
 
-    function handleAdd(product){
+    // function handleAdd(product){
       
-       // dispatch(add(product))
-        dispatch({type:'cart/add', payload: product})
-        console.log(product)
-    }
+    //    // dispatch(add(product))
+    //     dispatch({type:'cart/add', payload: product})
+    //     // console.log(product)
+    // }
 
 
     return (
@@ -41,7 +41,7 @@ function Product() {
             return(
                 <Link className= "linkproducts" to={`Checkout/${product.id} `} >  
             <div className= "Products"  key={id}>
-            {console.log(id)}
+            {/* {console.log(id)} */}
             <img src={product.image} />
            
             <div className='ProductInformation' >
@@ -60,20 +60,12 @@ function Product() {
                 <p>{product.category}</p>
                 </div>
                 </div>
-                
-                {/* <button className='btn' onClick={()=>handleAdd(product)} >Add to cart</button> */}
-            </div>
+                </div>
             </Link>
             )
           
-        })}
-        
-            
+        })}    
         </div>
-        
-
-      
-
         </>
         
     )

@@ -1,14 +1,8 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import SearchIcon from '@mui/icons-material/Search';
-
-
-
-// import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import Product from './Product';
+
 
 
 function Header() {
@@ -28,7 +22,7 @@ function Header() {
     }
 
     let uniqueArr = removeDuplicateObjects(arr);
-    console.log(uniqueArr)
+    console.log(uniqueArr);
   return (
 <>
    <nav className="header">
@@ -36,7 +30,7 @@ function Header() {
 
 
         {/* logo*/}
-        <Link to="/">
+        <Link to="/" className='logolink'>
             <img src='https://image.pitchbook.com/IIZvz8HxGpxmd4nnI5Irsnm0JAx1666857561209_200x200' alt='' className='logo' />
             
 
@@ -44,10 +38,7 @@ function Header() {
         {/* logo*/}
 
         <div className='headerSearch'>
-        {/* <img src={searchIcon} alt="search" className='searchicon' /> */}
-            {/* <input className='headerSearchInput' /> */}
-            
-            {/* <button className='searchbtn'>Search</button> */}
+    
             <div className="search">
                         <input type="text" placeholder="Search for products brands and more" />
                        <i class="fa-solid fa-magnifying-glass"></i>
@@ -72,33 +63,15 @@ function Header() {
                     
                 </div>
             </Link>
-            {/*Prime */}
-            {/* <Link to="/" className='headerLink' >
-                <div className='headerOptions' >
-                    <span className='headerOption_One'>Return</span>
-                    <span className='headerOption_Two'>Home</span>
-                </div>
-            </Link> */}
-            {/*profile */}
-            {/* <Link to="/Profile" className='headerLink' >
-                <div className='headerOptions' >
-                    <span className='headerOption_One'>Your</span>
-                    <span className='headerOption_Two'>Profile</span>
-                </div>
-            </Link> */}
-            {/*Basket */}
+
              <Link to="/Cart" className='headerLink' >
                 <div className='headerOptions_Basket' >
-                   
                     <span className='headerOption_Two basketCount'>Cart : {uniqueArr.length}</span>
                 </div>
             </Link>
         </div>
 
-        {/* Links */}
-
-
-    </div>
+     </div>
 
    </nav>
 </>

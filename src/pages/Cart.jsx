@@ -1,15 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../store/cartSlice';
+import { remove, removeAll } from '../store/cartSlice';
 import { Link } from 'react-router-dom';
 import './Cart.css';
-import Header from '../layout/Header/Header';
-import { decreament, increment } from '../store/quantitySlice';
 
 function Cart() {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.cart);
-    const count = useSelector((state) => state.counter)
+    const count = useSelector((state) => state.counter);
     console.log(count)
     let arr = [];
 
@@ -17,7 +15,11 @@ function Cart() {
     function handleRemove(id) {
         dispatch(remove(id))
     }
-    {
+    function handleRemoveAll(product){
+        console.log(product)
+      dispatch(removeAll(product))
+    }
+    
         products.map((product, id) => {
             arr.push(product)
         })
@@ -31,17 +33,18 @@ function Cart() {
         }
 
         let uniqueArr = removeDuplicateObjects(arr);
-        console.log(uniqueArr)
+        // console.log(uniqueArr)
         return (
-            <div>
+            <div className='maindivcart'>
                 <h1 className='cartItems'>Cart Items</h1>
+                <button type='button' className='Removeall' onClick={handleRemoveAll} >Remove All</button>
 
                 <div className='productsWrapper'>
                     { uniqueArr.map((item, id)=>{
-                        console.log(item.id, item.title)
+                        // console.log(item.id, item.title)
                     return (
 
-                    <div className="Products" key={id}>
+                    <div className="Products cartproducts" key={id}>
 
                         {/* {console.log(id)}
                         {console.log(uniqueArr)} */}
@@ -73,7 +76,7 @@ function Cart() {
                 </div>
             </div>
         )
-    }
+    
 }
 
     export default Cart;
